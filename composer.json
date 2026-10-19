@@ -1,0 +1,51 @@
+{
+  "name": "mjfk23/gadget-ldap",
+  "description": "Gadget LDAP library",
+  "type": "library",
+  "keywords": [],
+  "homepage": "https://github.com/mjfk23/gadget-ldap",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Melody Kimball",
+      "role": "lead"
+    }
+  ],
+  "support": {
+    "issues": "https://github.com/mjfk23/gadget-ldap/issues",
+    "wiki": "https://github.com/mjfk23/gadget-ldap/wiki",
+    "source": "https://github.com/mjfk23/gadget-ldap"
+  },
+  "require": {
+    "php": "^8.1",
+    "ext-ldap": "*",
+    "mjfk23/gadget-core": "^2.0",
+    "mjfk23/symfony-bundle": "^1.0"
+  },
+  "require-dev": {
+    "phpstan/phpstan": "^2.0",
+    "phpstan/phpstan-strict-rules": "^2.0",
+    "phpstan/extension-installer": "^1.4",
+    "squizlabs/php_codesniffer": "^3.10"
+  },
+  "autoload": {
+    "psr-4": {
+      "Gadget\\Ldap\\": [
+        "src/",
+        "bundle/"
+      ]
+    }
+  },
+  "config": {
+    "allow-plugins": {
+      "phpstan/extension-installer": true
+    },
+    "sort-packages": true,
+    "optimize-autoloader": true,
+    "apcu-autoloader": true
+  },
+  "scripts": {
+    "phpcs": "vendor/bin/phpcs",
+    "phpstan": "vendor/bin/phpstan analyse -c phpstan.neon"
+  }
+}

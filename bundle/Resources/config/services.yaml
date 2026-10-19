@@ -1,0 +1,13 @@
+services:
+  _defaults:
+    autowire: true
+    autoconfigure: true
+
+  Gadget\Ldap\:
+    resource: "../../../src/"
+
+  Gadget\Ldap\Connection:
+    arguments:
+      $uri: "%env(string:default::LDAP_URI)%"
+      $user: "%env(string:default::LDAP_USER)%"
+      $pass: "%env(string:default::LDAP_PASS)%"
