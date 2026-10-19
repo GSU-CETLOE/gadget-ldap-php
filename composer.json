@@ -1,44 +1,45 @@
 {
-  "name": "mjfk23/gadget-ldap",
-  "description": "Gadget LDAP library",
+  "name": "gsu-cetloe/gadget-ldap-php",
+  "description": "Gadget LDAP library: a lazy LDAP connection, paged searches that stream entries through a callback, and helpers for Active Directory timestamps, with a Symfony bundle",
   "type": "library",
   "keywords": [],
-  "homepage": "https://github.com/mjfk23/gadget-ldap",
+  "homepage": "https://github.com/GSU-CETLOE/gadget-ldap-php",
   "license": "MIT",
   "authors": [
     {
-      "name": "Melody Kimball",
-      "role": "lead"
+      "name": "Jeb Barger",
+      "role": "Application Developer"
     }
   ],
-  "support": {
-    "issues": "https://github.com/mjfk23/gadget-ldap/issues",
-    "wiki": "https://github.com/mjfk23/gadget-ldap/wiki",
-    "source": "https://github.com/mjfk23/gadget-ldap"
-  },
   "require": {
-    "php": "^8.1",
+    "php": "8.1.*",
     "ext-ldap": "*",
-    "mjfk23/gadget-core": "^2.0",
-    "mjfk23/symfony-bundle": "^1.0"
+    "gsu-cetloe/gadget-core-php": "^1.0",
+    "gsu-cetloe/symfony-bundle": "^1.0"
   },
   "require-dev": {
     "phpstan/phpstan": "^2.0",
     "phpstan/phpstan-strict-rules": "^2.0",
     "phpstan/extension-installer": "^1.4",
+    "phpunit/phpunit": "^10.5",
     "squizlabs/php_codesniffer": "^3.10"
   },
   "autoload": {
     "psr-4": {
-      "Gadget\\Ldap\\": [
-        "src/",
-        "bundle/"
-      ]
+      "Gadget\\Ldap\\": ["src/", "bundle/"]
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Gadget\\Ldap\\Tests\\": "tests/"
     }
   },
   "config": {
     "allow-plugins": {
       "phpstan/extension-installer": true
+    },
+    "platform": {
+      "php": "8.1.0"
     },
     "sort-packages": true,
     "optimize-autoloader": true,
@@ -46,6 +47,12 @@
   },
   "scripts": {
     "phpcs": "vendor/bin/phpcs",
-    "phpstan": "vendor/bin/phpstan analyse -c phpstan.neon"
+    "phpstan": "vendor/bin/phpstan analyse -c phpstan.neon",
+    "test": "vendor/bin/phpunit",
+    "check": [
+      "@phpcs",
+      "@phpstan",
+      "@test"
+    ]
   }
 }

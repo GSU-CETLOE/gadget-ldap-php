@@ -74,7 +74,7 @@ final class DateFormat
     ): \DateTimeInterface|null {
         return $timeInterval > (10000000 * self::TIME_INTERVAL_OFFSET)
             ? self::createLocalDateTime(
-                date(
+                gmdate(
                     'Y-m-d H:i:s',
                     intval(floor($timeInterval / 10000000)) - self::TIME_INTERVAL_OFFSET
                 ),
